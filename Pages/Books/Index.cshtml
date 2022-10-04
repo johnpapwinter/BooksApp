@@ -1,0 +1,32 @@
+﻿@page
+@model BooksApp.Pages.Books.IndexModel
+@{
+}
+
+<h2>List of Books</h2>
+<a class="btn btn-primary btn-sm" href="/Books/Add">Add New Book</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Author</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Books is not null) {
+            @foreach (var book in Model.Books) {
+                <tr>
+                    <td>@book.Id</td>
+                    <td>@book.Title</td>
+                    <td>@book.Author</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="/Books/Edit?id=@book.Id">Edit</a>
+                        <a class="btn btn-primary btn-sm" href="/Books/Remove?id=@book.Id">Remove</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
