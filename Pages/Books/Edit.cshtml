@@ -1,0 +1,37 @@
+﻿@page
+@model BooksApp.Pages.Books.EditModel
+@{
+}
+
+
+<h2 class="mb-3">Edit Book</h2>
+@if (!Model.ErrorMessage.Equals("")) {
+    <h2><strong>@Model.ErrorMessage</strong></h2>
+}
+
+<form method="post">
+    <input type="hidden" name="id" value="@Model.BookDto.Id" />
+    <div class="row mb-3">
+        <label for="title" class="col-md-1 col-form-label">Book Title</label>
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="title" id="title" placeholder="Enter book title" value="@Model.BookDto.Title" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="author" class="col-md-1 col-form-label">Book Author</label>
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="author" id="author" placeholder="Enter author name" value="@Model.BookDto.Author" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="offset-md-1 col-md-3 d-grid">
+            <button type="submit" class="btnav btn-primary">Submit</button>
+        </div>
+        <div class="col-md-3 d-grid">
+            <a href="/" role="button" class="btn btn-outline-primary">Cancel</a>
+        </div>
+    </div>
+
+</form>
