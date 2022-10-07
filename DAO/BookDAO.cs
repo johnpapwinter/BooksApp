@@ -26,6 +26,9 @@ namespace BooksApp.DAO
                     book.Id = reader.GetInt32(0);
                     book.Title = reader.GetString(1);
                     book.Author = reader.GetString(2);
+                    book.Year = reader.GetInt32(3);
+                    book.Publisher = reader.GetString(4);
+                    book.Room = reader.GetString(5);
 
                     Books.Add(book);
                 }
@@ -90,8 +93,11 @@ namespace BooksApp.DAO
                     {
                         Id = reader.GetInt32(0),
                         Title = reader.GetString(1),
-                        Author = reader.GetString(2)
-                    };
+                        Author = reader.GetString(2),
+                        Year = reader.GetInt32(3),
+                        Publisher = reader.GetString(4),
+                        Room = reader.GetString(5)
+                };
                 }
 
                 return book;
@@ -116,12 +122,16 @@ namespace BooksApp.DAO
                 using SqlConnection? conn = DBHelper.GetConnection();
 
                 conn!.Open();
-                string sql = "INSERT INTO BOOKS (TITLE, AUTHOR) VALUES (@title, @author)";
+                string sql = "INSERT INTO BOOKS (TITLE, AUTHOR, YEAR, PUBLISHER, ROOM) " 
+                    + "VALUES (@title, @author, @year, @publisher, @room)";
 
                 using SqlCommand command = new SqlCommand(sql, conn);
 
                 command.Parameters.AddWithValue("@title", book.Title);
                 command.Parameters.AddWithValue("@author", book.Author);
+                command.Parameters.AddWithValue("@year", book.Year);
+                command.Parameters.AddWithValue("@publisher", book.Publisher);
+                command.Parameters.AddWithValue("@room", book.Room);
 
                 command.ExecuteNonQuery();
             }
@@ -145,13 +155,17 @@ namespace BooksApp.DAO
                 using SqlConnection? conn = DBHelper.GetConnection();
 
                 conn!.Open();
-                string sql = "UPDATE BOOKS SET TITLE=@title, AUTHOR=@author WHERE ID=@id";
+                string sql = "UPDATE BOOKS SET TITLE=@title, AUTHOR=@author, YEAR=@year, "
+                    + "PUBLISHER=@publisher, ROOM=@room WHERE ID=@id";
 
                 using SqlCommand command = new SqlCommand(sql, conn);
 
                 command.Parameters.AddWithValue("@title", book.Title);
                 command.Parameters.AddWithValue("@author", book.Author);
                 command.Parameters.AddWithValue("@id", book.Id);
+                command.Parameters.AddWithValue("@year", book.Year);
+                command.Parameters.AddWithValue("@publisher", book.Publisher);
+                command.Parameters.AddWithValue("@room", book.Room);
 
                 command.ExecuteNonQuery();
             }

@@ -118,7 +118,10 @@ namespace BooksApp.Service
             {
                 Id = bookDTO.Id,
                 Title = bookDTO.Title,
-                Author = bookDTO.Author
+                Author = bookDTO.Author,
+                Year = bookDTO.Year,
+                Publisher = bookDTO.Publisher,
+                Room = bookDTO.Room
             };
         }
     }
