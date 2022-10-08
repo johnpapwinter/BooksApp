@@ -46,6 +46,9 @@ namespace BooksApp.Pages.Books
             BookDto.Id = int.Parse(Request.Form["id"]);
             BookDto.Title = Request.Form["title"];
             BookDto.Author = Request.Form["author"];
+            BookDto.Year = int.Parse(Request.Form["year"]);
+            BookDto.Publisher = Request.Form["publisher"];
+            BookDto.Room = Request.Form["room"];
 
             ErrorMessage = BookValidator.Validate(BookDto);
 
@@ -72,6 +75,9 @@ namespace BooksApp.Pages.Books
             bookDTO.Id = book.Id;
             bookDTO.Title = book.Title;
             bookDTO.Author = book.Author;
+            bookDTO.Year = book.Year;
+            bookDTO.Publisher = book.Publisher;
+            bookDTO.Room = book.Room;
 
             return bookDTO;
         }

@@ -26,6 +26,27 @@
     </div>
 
     <div class="row mb-3">
+        <label for="year" class="col-md-1 col-form-label">Publication Year</label>
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="year" id="year" placeholder="Enter publication year" value="@Model.BookDto.Year" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="publisher" class="col-md-1 col-form-label">Book Publisher</label>
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="publisher" id="publisher" placeholder="Enter book publisher" value="@Model.BookDto.Publisher" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="room" class="col-md-1 col-form-label">Book location</label>
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="room" id="room" placeholder="Enter book location" value="@Model.BookDto.Room" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
         <div class="offset-md-1 col-md-3 d-grid">
             <button type="submit" class="btnav btn-primary">Submit</button>
         </div>

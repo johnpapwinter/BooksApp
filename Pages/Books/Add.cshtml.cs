@@ -32,6 +32,9 @@ namespace BooksApp.Pages.Books
 
             BookDto.Title = Request.Form["title"];
             BookDto.Author = Request.Form["author"];
+            BookDto.Year = int.Parse(Request.Form["year"]);
+            BookDto.Publisher = Request.Form["publisher"];
+            BookDto.Room = Request.Form["room"];
 
             ErrorMessage = BookValidator.Validate(BookDto);
 
@@ -58,6 +61,9 @@ namespace BooksApp.Pages.Books
         {
             BookDto.Title = "";
             BookDto.Author = "";
+            BookDto.Year = 0;
+            BookDto.Publisher = "";
+            BookDto.Room = "";
         }
     }
 }
