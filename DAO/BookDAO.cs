@@ -97,7 +97,7 @@ namespace BooksApp.DAO
                         Year = reader.GetInt32(3),
                         Publisher = reader.GetString(4),
                         Room = reader.GetString(5)
-                };
+                    };
                 }
 
                 return book;
